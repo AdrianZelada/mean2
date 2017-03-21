@@ -10,20 +10,8 @@ var users = require('./routes/users');
 
 var configDb=require('./config/db');
 
-
-console.log(configDb)
-
-var mongoose = require('mongoose');
-mongoose.connect(configDb.url+configDb.name);
-
-// var db = mongoose.connection;
-// db.on('error', console.error.bind(console, 'connection error:'));
-// db.once('open', function() {
-//     // we're connected!
-//
-//     console.log('connect db')
-// });
-
+// var mongoose = require('mongoose');
+// mongoose.connect(configDb.url+configDb.name);
 
 var app = express();
 
@@ -60,13 +48,5 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
-
-var db = mongoose.connection;
-db.on('error', console.error.bind(console, 'connection error:'));
-db.once('open', function() {
-    // we're connected!
-
-    console.log('connect db')
-});
 
 module.exports = app;
